@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Runtime artifacts
+device/**/outputConsole
+palera1n/logs/
+*.log
+
+# palera1n generated state/output
+palera1n/blobs/
+palera1n/boot-*/
+palera1n/work/
+palera1n/rdwork/
+palera1n/.fs-*
+palera1n/.entered_dfu
+palera1n/.rd_in_progress
+palera1n/.tweaksinstalled
+palera1n/.disclaimeragree
