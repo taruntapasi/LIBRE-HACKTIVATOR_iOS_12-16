@@ -3,11 +3,14 @@
 cd "$(dirname "$0")" || exit 1
 
 get_device_dir() {
-  case "$(uname)" in
+  local os_name
+  os_name="$(uname -s 2>/dev/null || uname 2>/dev/null || printf 'Unknown')"
+
+  case "$os_name" in
     Darwin) echo "./device/Darwin" ;;
-    Linux) echo "./device/Linux" ;;
+    Linux|MSYS_NT-*|MINGW32_NT-*|MINGW64_NT-*) echo "./device/Linux" ;;
     *)
-      echo "Unsupported OS: $(uname). Use macOS (Darwin) or Linux." >&2
+      echo "Unsupported OS: $os_name. Use macOS (Darwin) or a Linux-compatible environment." >&2
       return 1
       ;;
   esac
